@@ -117,9 +117,19 @@ main > * + * {
 .steps li + li {
   margin-top: var(--space-1);
 }
+@media (min-width: 64rem) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 64rem) {
+ .field-row {
+ flex-direction: column;
+ }
+}
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--space-2);
   list-style: none;
 }
@@ -166,6 +176,7 @@ main > * + * {
  display: flex;
  flex-direction: column;
  gap: 0.25rem;
+ margin-bottom: var(--space-2);
 }
 .materials-table tbody th,
 .materials-table tbody td {
@@ -207,6 +218,7 @@ button:hover {
 #search-button,
 button[type="submit"] {
  background: var(--color-action);
+ color: var(--color-carbon);
 }
 .filters{
   display: flex;
@@ -223,6 +235,23 @@ button[type="submit"] {
 .filter:hover {
   border-color: var(--color-indigo);
   filter: none;
+}
+:focus-visible {
+ outline: 3px solid var(--color-action);
+ outline-offset: 2px;
+}
+skip-link {
+ position: absolute;
+ top: var(--space-1);
+ left: -100vw;
+ padding: var(--space-1) var(--space-2);
+ background: var(--color-surface);
+ color: var(--color-indigo);
+ border: 2px solid var(--color-indigo);
+ z-index: 10;
+}
+.skip-link:focus {
+ left: var(--space-1);
 }
 .page{
   max-width: 70rem;
